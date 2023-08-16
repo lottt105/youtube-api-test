@@ -15,10 +15,6 @@ yt_urls = [
     "https://music.youtube.com/watch?v=A1tZgPAcpjE"
   ]
 
-
-# requests, bs4 사용
-# infos = yt_views_extractor(yt_url.replace('music.', ''))
-
 # youtube data api 사용
 video_ids = []
 for yt_url in yt_urls:
