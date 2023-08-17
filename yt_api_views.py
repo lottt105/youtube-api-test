@@ -24,8 +24,8 @@ def yt_api_views(video_ids):
         
         infos = []
         for i in range(len(items)):
-            title = items[i]['snippet']['title']
-            artist = items[i]['snippet']['channelTitle']
+            title = items[i]['snippet']['title'].replace(",", " ")
+            artist = items[i]['snippet']['channelTitle'].replace(",", " ")
             views = int(items[i]['statistics']['viewCount'])
             
             infos.append([title, artist, views])
