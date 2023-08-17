@@ -22,8 +22,7 @@ def fetch_plam_premium_artist_list():
                 "name": artist["name"],
             }
             
-            if artist_info["youtubeMusicUrl"]:
-                artist_list.append(artist_info)
+            artist_list.append(artist_info)
 
         return artist_list
 

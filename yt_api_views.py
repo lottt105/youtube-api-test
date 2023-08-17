@@ -7,7 +7,6 @@ api_version = "v3"
 API_KEY = secrets.YOUTUBE_API_KEY
 
 def yt_api_views(video_ids):
-    
     video_ids = ','.join(video_ids)
 
     # YouTube Data API 클라이언트 생성
@@ -27,10 +26,14 @@ def yt_api_views(video_ids):
             title = items[i]['snippet']['title'].replace(",", " ")
             artist = items[i]['snippet']['channelTitle'].replace(",", " ")
             views = int(items[i]['statistics']['viewCount'])
+            likes = int(items[i]['statistics']['likeCount'])
+            v_id = items[i]["id"]
             
-            infos.append([title, artist, views])
-    
+            infos.append([title, artist, views, likes, v_id])
+            
         return infos
+            
 
     except HttpError as e:
         print('에러 발생:', e)
+        
