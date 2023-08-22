@@ -6,14 +6,14 @@ api_service_name = "youtube"
 api_version = "v3"
 API_KEY = secrets.YOUTUBE_API_KEY
 
-def yt_api_views(video_ids):
+def fetch_youtube_data(video_ids):
     video_ids = ','.join(video_ids)
 
     # YouTube Data API 클라이언트 생성
     youtube = build(api_service_name, api_version, developerKey=API_KEY)
 
     try:
-        # 비디오 정보 가져오기
+        # api에서 video_ids 정보 가져오기
         request = youtube.videos().list(
             part="snippet,statistics",
             id=video_ids
@@ -21,19 +21,19 @@ def yt_api_views(video_ids):
         video_response = request.execute()
         items = video_response['items']
         
-        infos = []
+        infos = {}
         for i in range(len(items)):
-            title = items[i]['snippet']['title'].replace(",", " ")
-            artist = items[i]['snippet']['channelTitle'].replace(",", " ")
+            v_id = items[i]["id"]
             views = int(items[i]['statistics']['viewCount'])
             likes = int(items[i]['statistics']['likeCount'])
-            v_id = items[i]["id"]
             
-            infos.append([title, artist, views, likes, v_id])
+            infos[v_id] = {
+                "views": views, 
+                "likes": likes
+            }
             
         return infos
             
-
-    except HttpError as e:
-        print('에러 발생:', e)
+    except Exception as e:
+        print('[fetch_youtube_data]에러 발생:', e)
         

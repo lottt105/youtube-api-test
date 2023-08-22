@@ -26,5 +26,5 @@ def fetch_plam_premium_artist_list():
 
         return artist_list
 
-    except HttpError as e:
-        print('에러 발생:', e)
+    except Exception as e:
+        print('[fetch_plam_artist]에러 발생:', e)
