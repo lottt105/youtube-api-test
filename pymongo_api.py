@@ -7,6 +7,7 @@ MONGO_PLAM_URL = "mongodb+srv://naivyplam:GPFFHDNnaivy1!@naivyplam.fc2jf.mongodb
 # crawling db, collection
 CRAWLING_DB_NAME = "crawlingdb"
 YOUTUBE_TRACK_COLLECTION_NAME = "youtubeTracks"
+YOUTUBE_ERROR_COLLECTION_NAME = "youtubeErrors"
 
 # plam db, collection
 PLAM_DB_NAME = "plam"
