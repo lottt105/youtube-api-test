@@ -150,7 +150,7 @@ def update_track_data():
             "$set": {
               "youtubeMusicLikes.total": likes
             },
-            "$push": {"youtubeMusicLikes.daily": today_views}
+            "$push": {"youtubeMusicLikes.daily": today_likes}
           }
         
         # db에 오늘 데이터 추가

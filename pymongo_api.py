@@ -1,8 +1,9 @@
 from pymongo import MongoClient
 import time
+from secrets import (MONGO_CRAWLING_URL, MONGO_PLAM_URL)
 
-MONGO_CRAWLING_URL = "mongodb+srv://naivy:79467946@crawling.fahhu.mongodb.net/"
-MONGO_PLAM_URL = "mongodb+srv://naivyplam:GPFFHDNnaivy1!@naivyplam.fc2jf.mongodb.net/"
+MONGO_CRAWLING_URL = MONGO_CRAWLING_URL
+MONGO_PLAM_URL = MONGO_PLAM_URL
 
 # crawling db, collection
 CRAWLING_DB_NAME = "crawlingdb"
