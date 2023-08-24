@@ -98,7 +98,6 @@ def update_track_data():
             total_tracks[v_id], CRAWLING_DB_NAME, YOUTUBE_TRACK_COLLECTION_NAME
           )
           if res:
-            post_check += 1
             exsiting_data = get_data(
               get_query, CRAWLING_DB_NAME, YOUTUBE_TRACK_COLLECTION_NAME
             )
